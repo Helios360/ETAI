@@ -1,0 +1,198 @@
+:root{
+    --primary:#071E26;
+    --secondary:#000000;
+    --tertiary:#040F13;
+    --highlight:#FFFFFF;
+    --positive:#15FF00;
+    --negative:#FF0000;
+    --unknown:#8D8D8D;
+    --unaccessible:#FF8000;
+}
+@font-face {
+    font-family: fa;
+    src: url("../sources/Fonts/Revalia/Revalia-Regular.ttf");
+}
+*{
+    box-sizing: border-box;    
+    scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+select:focus {
+    outline: none;
+    border: none;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+body{
+    font-family: fa;
+    background-color: var(--primary);
+    color:var(--highlight);
+}
+header{
+    background-color: var(--secondary);
+    height:75px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 15px;
+}
+.nav{
+    display: flex; 
+    gap:40px;
+}
+.logo{
+    margin-top: -5px;
+    font-size: 64px;
+}
+main{
+    display: grid;
+    grid-template-areas:
+    "a a a"
+    "b c d"
+    "b e e";
+    grid-template-rows: 0.7fr 1.2fr 1.1fr;
+    grid-template-columns: 1.3fr 1fr 2fr;
+    gap: 50px;
+    padding: 30px;
+    min-height:90vh;
+    overflow: auto;
+}
+.widget{
+    border-radius: 10px;
+    padding:20px 20px;
+    box-shadow: 0px 0px 8.1px 4px var(--highlight);
+    background-color: var(--tertiary);
+    display: flex;
+}
+.gen{grid-area: a;padding:0;overflow: hidden;}
+.mike{
+    grid-area: b;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mike span{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+.smile{grid-area: c;}
+.chat{
+    grid-area: d; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    gap:20px;
+}
+.stats{grid-area: e;}
+.gen > div{
+    border:solid 1px var(--highlight);
+    height:100%;
+    width: auto;
+}
+.here-or-not div{
+    height: 50%;
+    min-width: 230px;
+    border:solid 1px var(--highlight);
+    padding:10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+.links{
+    align-items: center;
+    padding: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:10px;
+    width: 400px;
+}
+.links div{
+    background-color: var(--secondary);
+    border:solid 1px var(--highlight);
+    height:60px;
+    width: 150px;
+}
+.note{
+    border:solid 1px var(--highlight);
+    width:auto;
+}
+.note textarea{
+    background-color: transparent;
+    border: none;
+    resize: none;
+    width: auto;
+    height: 120px;
+    color: var(--highlight);
+}
+.cloud{
+    min-width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.event{
+    width: 100%!important;
+}
+h2{
+    font-size: 20px;
+}
+h3{
+    margin: 12px;
+    font-size: 19px;
+}
+input{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    color: var(--highlight);
+    padding-left: 10px;
+}
+input::placeholder{
+    color: var(--highlight);
+}
+.write{
+    background-color: var(--secondary);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+}
+.write > svg > path{
+    fill:white;
+}
+p{
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+.chaty{
+    height: 185px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.message-me{
+    background-color: var(--secondary);
+}
+.message{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.message > p{
+    background-color: var(--secondary);
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+}
