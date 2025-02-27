@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 
 // Define the hostname and port
@@ -15,11 +15,14 @@ const db = mysql.createConnection({
         database:'test',
 });
 //finish here
-
 db.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to the database');
+  if (err) {
+    console.error('Error connecting to the database:', err.stack);
+    return;
+  }
+  console.log('Connected to the database as id ' + db.threadId);
 });
+
 
 // Create an HTTP server
 const server = http.createServer((req, res) => {
@@ -104,10 +107,10 @@ const server = http.createServer((req, res) => {
         }
     });
   } else {
-      res.statusCode = 404;
-      res.end('Nod Found');
-  }
-});
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ error: 'Not Found' }));  }
+  });
 
 // Make the server listen on the defined port and hostname
 server.listen(port, hostname, () => {
