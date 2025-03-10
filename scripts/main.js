@@ -22,21 +22,45 @@ submit_chat.addEventListener("click",()=>{
     main_input_mike.value = "";
 });
 
+async function fetch_msg(){
+	try {
+		const response = await fetch("http://localhost:3000/api/data");
+		const data = await response.json();
+		displayData(data);
+	} catch (error) {
+		console.error("Error fetching data: ", error);
+		main_chat.innerHTML = "Error loading data";
+	}
+}
 function send_msg(msg){
-        fetch("http://10.0.0.16:8080/submit-message", {
-                method:'POST',
-                headers: {
-                        "Content-type": 'application/json',
-                },
-                body: JSON.stringify({ message: msg }),
-        })
-        .then(response => response.json())
-        .then(data =>{
-                console.log('success', data);
-        })
-        .catch((error) => {
-                console.error("Error: ",error);
-        });
+	fetch("http://10.0.0.16:8080/submit-message", {
+		method:'POST',
+		headers: {
+			"Content-type": 'application/json',
+		},
+		body: JSON.stringify({ message: msg }),
+	})
+	.then(response => response.json())
+	.then(data =>{
+		console.log('success', data);
+	})
+	.catch((error) => {
+		console.error("Error: ",error);
+	});
+}
+function displayData(data){
+	if (!data || data.lenght === 0){
+		main_chat.innerHTML = "No data found..";
+		return;
+	}
+	data.forEach(item => {
+		main_chat.innerHTML += `
+            	<div class="message">
+                	<p>${item}</p>
+                	<span>hmm</span>
+            	</div>
+		`;
+	}
 }
 main_input_chat.addEventListener("keypress", (e)=>{
     if (e.key === "Enter"){
@@ -49,7 +73,7 @@ main_input_chat.addEventListener("keypress", (e)=>{
                     <span>hmm</span>
             </div>
         `;
-        send_msg(msg);
+	send_msg(msg);
         main_input_chat.value = "";
     }
 });
