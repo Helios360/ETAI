@@ -3,16 +3,16 @@ const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2');
 
-
+const publiChat = "test";
 // Define the hostname and port
 const hostname = '10.0.0.16';
 const port = 8080;
 
 const db = mysql.createConnection({
-        host:'localhost',
-        user:'root',
-        password:'PUT YOUR PASS HERE',
-        database:'test',
+	host:'localhost',
+	user:'root',
+	password:'eliyan1012',
+	database:'test',
 });
 //finish here
 db.connect((err) => {
@@ -38,10 +38,24 @@ const server = http.createServer((req, res) => {
         res.end('Internal Server Error');
         return;
       }
-      res.statusCode = 200;
+	res.statusCode = 200;
       res.setHeader('Content-Type', 'text/html');
       res.end(data);
     });
+  } else if (req.url === '/api/data') {
+	db.query("SELECT * FROM test", (error, result) => {
+		if (error){
+			res.writeHead(500, {"Content-Type": "application/json"});
+			res.end(JSON.stringify({error: "DB query failed"}));
+			return;
+		}
+		res.writeHead(200,{
+			"Content-Type":"application/json",
+			"Access-Control-Allow-Origin":"*"
+		});
+		res.end(JSON.stringify(results));
+		}
+	}
   } else if (req.url.startsWith('/styles/') && path.extname(req.url) === '.css') {
     const filePath = path.join(__dirname, req.url);
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -107,9 +121,9 @@ const server = http.createServer((req, res) => {
         }
     });
   } else {
-        res.statusCode = 404;
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({ error: 'Not Found' }));  }
+	res.statusCode = 404;
+	res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ error: 'Not Found' }));  }
   });
 
 // Make the server listen on the defined port and hostname
