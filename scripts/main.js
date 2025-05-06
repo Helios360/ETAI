@@ -60,7 +60,7 @@ function displayData(data){
                 	<span>hmm</span>
             	</div>
 		`;
-	}
+	});
 }
 main_input_chat.addEventListener("keypress", (e)=>{
     if (e.key === "Enter"){

@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # If you're here you're either dev or in trouble xD gl 
-echo -e "${YELLOW}( ˶°ㅁ°)! This install script has been created for debian systems cause why tf not lmao${NC}"
+echo -e "${YELLOW}( ˶°ㅁ°)! This install script has been created for debian systems cause debian better${NC}"
 
 # Function to check if last command succeeded
 check_status() {
@@ -38,6 +38,7 @@ echo "⠀⠀⠀⣠⣤⣌⣼⣿⣿⠀⠀⠀⢁⠼⣩⣿⣿⣥⠿⣟⢻⠈⠙⡼�
 echo "⠀⣴⣾⢛⠛⢿⣗⣻⣷⣍⣿⣯⡿⢿⣿⡫⢛⠫⢻⣎⢨⠌⡳⣧⣿⢟⢛⡻⢿⣭⣟⣚⣞⣫⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
 echo "⡀⠙⠷⠿⠤⠾⠷⠿⠓⠛⢿⣑⣠⡆⠈⣿⠠⠈⢠⣿⣮⣿⣿⠟⡻⠾⠞⠶⠤⠤⠼⠿⣿⡶⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
 echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⠍⠉⠉⠉⠙⠛⠛⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+
 # Check if script is ran as root
 if [ "$(id -u)" -ne 0 ]; then
     echo -e "${RED}This script must be run as root or with sudo privileges${NC}"

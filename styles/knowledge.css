@@ -1,0 +1,39 @@
+main{
+    grid-template-areas: 
+    "a b c d"
+    "a b c e";
+    grid-template-columns: auto 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.linkies{
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    width:auto;
+    gap:20px;
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    height:100cap;
+    gap: 10px;
+    overflow: scroll;
+}
+.link div{
+    background-color: var(--secondary);
+    border:solid 1px var(--highlight);
+    height:60px;
+    width: 150px;
+}
+.ressources{
+    grid-area: b;
+}
+.content{
+    grid-area: c;
+}
+.notes{
+    grid-area: d;
+}
+.news{
+    grid-area: e;
+}

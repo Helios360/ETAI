@@ -54,9 +54,8 @@ const server = http.createServer((req, res) => {
 			"Access-Control-Allow-Origin":"*"
 		});
 		res.end(JSON.stringify(results));
-		}
-	}
-  } else if (req.url.startsWith('/styles/') && path.extname(req.url) === '.css') {
+		});
+	} else if (req.url.startsWith('/styles/') && path.extname(req.url) === '.css') {
     const filePath = path.join(__dirname, req.url);
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
