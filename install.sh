@@ -9,7 +9,7 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# If you're here you're either dev or in trouble xD gl 
+# If you're here you're either dev or in trouble xD gl
 echo -e "${YELLOW}( ˶°ㅁ°)! This install script has been created for debian systems cause debian better${NC}"
 
 # Function to check if last command succeeded
@@ -52,6 +52,9 @@ check_status "System update"
 
 # Install required packages
 echo -e "\n${YELLOW}====(づ ᴗ _ᴗ)づ Installing Required Packages ====${NC}"
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.29-1_all.deb
+sudo rm mysql-apt-config_*.deb
 apt install nodejs npm mysql-server curl -y
 check_status "Package installation"
 
@@ -72,7 +75,7 @@ if systemctl is-active --quiet mysql; then
 else
     echo -e "${YELLOW}MySQL is NOT active. Attempting to start...${NC}"
     systemctl start mysql
-    
+
     if systemctl is-active --quiet mysql; then
         echo -e "${GREEN}MySQL successfully started!${NC}"
     else
@@ -104,17 +107,17 @@ if [[ "$create_db" =~ ^[Yy]$ ]]; then
     echo -e "${YELLOW}Enter database user:${NC}"
     read -r db_user
     echo -e "${YELLOW}Enter password for the user:${NC}"
-    read -rs db_password
+    read -r root_password
     echo ""
-
     # Create database and user
-    mysql -e "CREATE DATABASE IF NOT EXISTS ${db_name};"
-    mysql -e "CREATE USER IF NOT EXISTS '${db_user}'@'localhost' IDENTIFIED BY '${db_password}';"
-    mysql -e "GRANT ALL PRIVILEGES ON ${db_name}.* TO '${db_user}'@'localhost';"
-    mysql -e "FLUSH PRIVILEGES;"
-    
+    mysql -u root -p"${root_password}" -e "CREATE DATABASE IF NOT EXISTS \`${db_name}\`;"
+    mysql -u root -p"${root_password}" -e "CREATE USER IF NOT EXISTS '${db_user}'@'localhost' IDENTIFIED BY '${db_password}';"
+    mysql -u root -p"${root_password}" -e "GRANT ALL PRIVILEGES ON \`${db_name}\`.* TO '${db_user}'@'localhost';"
+    mysql -u root -p"${root_password}" -e "FLUSH PRIVILEGES;"
+
+
     check_status "Database and user creation"
-    
+
     # Create .env file for database credentials
     echo -e "\n${YELLOW}Creating .env file with database credentials${NC}"
     cat > .env << EOF
