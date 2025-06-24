@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ETAI, un outil collaboratif pour la gestion des ressources, des tâches et des statistiques d'entreprise.">
+    <meta name="keywords" content="Cloud privé, collaboration, gestion des documents, productivité, entreprise, ETAI">
+    <meta name="author" content="Treguier Elias">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>ETAI</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/peoples.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <meta property="og:title" content="ETAI">
+    <meta property="og:description" content="Détails du projet ETAI : Cloud privé, collaboration, et gestion efficace des ressources.">
+    <meta property="og:image" content="assets/preview.png">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">ETAI</a>
+        <ul class="nav">
+            <li><a href="Knowledge.html">Knowledge</a></li>
+            <li><a href="Peoples.html">Peoples</a></li>
+            <li><a href="Tasks.html">Tasks</a></li>
+            <li><a href="Calendar.html">Calendar</a></li>
+            <li><a href="Assistant.html">Assistant</a></li>
+        </ul>
+        <a href="Account.html">
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="var(--highlight)" xmlns="http://www.w3.org/2000/svg"><path d="M15.71 12.71a6 6 0 1 0-7.42 0 10 10 0 0 0-6.22 8.18 1 1 0 0 0 2 .22 8 8 0 0 1 15.9 0 1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1 10 10 0 0 0-6.25-8.19M12 12a4 4 0 1 1 4-4 4 4 0 0 1-4 4"/></svg>
+        </a>
+    </header>
+    <main>
+        <div class="widget ppls">
+            <div class="search">
+                <p>Users:</p>
+                <input type="text" placeholder=">_" id="userSearch">
+            </div>
+            <div class="scroLlist">
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--negative)">Offline</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <div class="userList" id="employee_123456">
+                    <div><p>SteveSte SteveSteveSt :</p><p style="color:var(--positive)">Online</p></div>
+                </div>
+                <!-- Users are added when page is loaded, backend checks for user states and updates when signal -->
+            </div>
+        </div>
+        <div class="widget chat privChat">
+            <div class="chaty" id="private-chat"></div>
+            <div class="write">
+                <input class="put" name="private-chat" placeholder="PRIVATE CHAT ..." id="main-private-chat-input">
+                <svg id="submit-private-chat" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path fill="#000" fill-rule="evenodd" d="M2.345 2.245a1 1 0 0 1 1.102-.14l18 9a1 1 0 0 1 0 1.79l-18 9a1 1 0 0 1-1.396-1.211L4.613 13H10a1 1 0 1 0 0-2H4.613L2.05 3.316a1 1 0 0 1 .294-1.071z" clip-rule="evenodd"/>
+                </svg>   
+            </div>
+        </div>
+        </div>
+        <div class="widget infos">
+
+        </div>
+        <div class="widget chat pubChat">
+            <div class="chaty" id="public-chat"></div>
+            <div class="write">
+                <input class="put" name="public-chat" placeholder="PUBLIC CHAT ..." id="main-public-chat-input">
+                <svg id="submit-public-chat" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path fill="#000" fill-rule="evenodd" d="M2.345 2.245a1 1 0 0 1 1.102-.14l18 9a1 1 0 0 1 0 1.79l-18 9a1 1 0 0 1-1.396-1.211L4.613 13H10a1 1 0 1 0 0-2H4.613L2.05 3.316a1 1 0 0 1 .294-1.071z" clip-rule="evenodd"/>
+                </svg>   
+            </div>
+        </div>
+    </main>
+<script defer src="scripts/Peoples.js"></script>
+
+</body>
+</html>

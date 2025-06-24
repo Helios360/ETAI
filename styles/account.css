@@ -59,19 +59,6 @@ main{
     border: solid 1px var(--highlight);
     border-radius: 5px;
 }
-.search{
-    display: flex;
-    justify-content: space-between;
-    gap:5px;
-}
-.search > p{
-    flex-shrink: 0;
-}
-.search > input{
-    font-size: 18px;
-    background-color: var(--secondary);
-    border-radius: 5px;
-}
 .buttons{
     display: flex;
     flex-direction: column;

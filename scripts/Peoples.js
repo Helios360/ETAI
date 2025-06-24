@@ -6,26 +6,6 @@ const submit_pub_chat = document.getElementById("submit-public-chat");
 const main_input_priv_chat = document.getElementById("main-private-chat-input");
 const main_priv_chat = document.getElementById("private-chat");
 const submit_priv_chat = document.getElementById("submit-private-chat");
-// mikeAI on index.html
-const main_input_mike = document.getElementById("main-mike");
-const main_mike = document.getElementById("mike");
-const question = document.getElementById("question");
-const submit_mike = document.getElementById("submit-mike");
-
-
-main_input_mike.addEventListener("keypress", (e)=>{
-    if (e.key === "Enter"){
-        let question_input = main_input_mike.value;
-        question.innerText= question_input;
-        main_input_mike.value = "";
-    }
-});
-submit_chat.addEventListener("click",()=>{
-    main_input_chat.value = "";
-});
-submit_chat.addEventListener("click",()=>{
-    main_input_mike.value = "";
-});
 
 async function fetch_msg(){
 	try {
@@ -60,9 +40,9 @@ function displayData(data){
 	}
 	data.forEach(item => {
 		main_chat.innerHTML += `
-            	<div class="message">
-                	<p>${item}</p>
+            	<div class="message message-me">
                 	<span>hmm</span>
+					<p>${item}</p>
             	</div>
 		`;
 	});
@@ -74,8 +54,8 @@ main_input_pub_chat.addEventListener("keypress", (e)=>{
         // To create the public chat, the sent msg is stored on the db then fetched, not displayed in "sync"
         main_pub_chat.innerHTML+=`
             <div class="message">
-                    <p>${msg}</p>
                     <span>hmm</span>
+					<p style="background-color:var(--primary)">${msg}</p>
             </div>
         `;
 	send_msg(msg);
@@ -88,9 +68,9 @@ main_input_priv_chat.addEventListener("keypress", (e)=>{
         // THE BELOW INNERHTML IS TEMPORARY
         // To create the public chat, the sent msg is stored on the db then fetched, not displayed in "sync"
         main_priv_chat.innerHTML+=`
-            <div class="message-me">
-                    <p>${msg}</p>
+            <div class="message">
                     <span>hmm</span>
+					<p style="background-color:var(--primary)">${msg}</p>
             </div>
         `;
 	send_msg(msg);
